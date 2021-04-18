@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  -data = data || {}
+  
+  if errors
+    ul
+      for error in errors
+        li= error.msg
+        
+  form(action="." method="POST" class="text-center border border-light p-5")
+    label(for="name") Name:
+    input(
+      type="text"
+      id="name"
+      name="name"
+      value=data.name
+      class="form-control mb-4"
+      placeholder="Your name please..."
+    )
+
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      value=data.email
+      class="form-control mb-4"
+      placeholder="Your email address..."
+    )
+
+    input(type="submit" value="Submit" class="btn btn-primary")
